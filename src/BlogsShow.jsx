@@ -14,6 +14,12 @@ export function BlogsShow(props) {
       console.log('handling submit');
     }
     console.log(props.currentBlog)
+
+    const handleClick = () => {
+      console.log('handling click')
+      props.onDestroyBlog(props.currentBlog.id)
+
+    }
   
   return (
     <div>
@@ -33,6 +39,7 @@ export function BlogsShow(props) {
            Image: <input defaultValue={props.currentBlog.image} name="image" type="text" />
          </div>
          <button type="submit">Update post</button>
+         <button onClick={handleClick}>Destroy photo</button>
        </form>
     </div>
   );

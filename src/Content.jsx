@@ -63,6 +63,15 @@ export function Content() {
 
     })
   }
+
+  const handleDestroyBlog = (postId) => {
+    console.log('hanlding destroy recipe')
+    axios.delete(`http://localhost:3000/posts/${postId}.json`).then(response => {
+      console.log(response.data);
+      // recipes.select {|recipe| recipe.id != recipe_id}
+      setBlogs(blogs.filter(blog => blog.id != blog.id))
+    })
+  }
  
   return (
     <div>
@@ -72,7 +81,7 @@ export function Content() {
     <BlogsNew onCreateBlog={handleCreateBlog}/>
     <BlogsIndex blogs={blogs} onShowBlog={handleShowBlog} />
     <Modal show={isBlogsShowVisible} onClose={handleClose}>
-    <BlogsShow currentBlog={currentBlog} onUpdateBlog={handleUpdateBlog} />
+    <BlogsShow currentBlog={currentBlog} onUpdateBlog={handleUpdateBlog} onDestroyBlog={handleDestroyBlog}/>
      </Modal>
     </div>
   );
