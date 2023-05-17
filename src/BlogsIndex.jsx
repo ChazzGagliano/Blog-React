@@ -7,7 +7,7 @@
         <div key={blog.id}>
           <h2>{blog.title}</h2>
           <p>Text: {blog.body} </p>
-          <img src={blog.image_url} alt=""/>
+          <img src={blog.image} alt=""/>
           <button onClick={() => props.onShowBlog(blog)}>More info</button>
         </div>
       ))}

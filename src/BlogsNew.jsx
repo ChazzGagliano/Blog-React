@@ -1,24 +1,30 @@
+
+
 export function BlogsNew(props) {
 
    const handleSubmit = (event) => {
      event.preventDefault();
+     console.log('handling submit');
+
      const params = new FormData(event.target);
-     props.onCreateBlog(params, () => event.target.reset());
+     props.onCreateBlog(params)
+     event.target.reset()
    };
+
   return (
-    <div>
+    <div id="blogs id">
       <h1>New Posts</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>  
         <div>
-          Title: <input name="" type="text" />
+          Title: <input name="title" type="text" />
         </div>
         <div>
           Body: <input name="body" type="text" />
         </div>
         <div>
-          Image_url: <input name="Image" type="text" />
+          Image: <input name="Image" type="text" />
         </div>
-        <button type="submit">Create Blog</button>
+        <button type="submit">Create Post</button>
       </form>
     </div>
   );
